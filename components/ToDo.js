@@ -13,13 +13,7 @@ const Todo = ({ rightSwipeActions, swipeFromRightOpen, item }) => {
         key={item.id}
       >
         <View className="h-fit flex-row bg-white">
-          <Text
-            className={`p-5 text-slate-800 flex-1 ${
-              item.isCompleted && "line-through"
-            }`}
-          >
-            {item.todo}
-          </Text>
+          <Text className={`p-5 text-slate-800 flex-1 `}>{item.todo}</Text>
         </View>
       </Swipeable>
     </GestureHandlerRootView>
