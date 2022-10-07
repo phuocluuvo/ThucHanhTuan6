@@ -25,7 +25,8 @@ export default function ToDoNoAPI() {
     setTodo(null);
   }
   return (
-    <SafeAreaView>
+    <SafeAreaView className=" bg-white">
+      <StatusBar></StatusBar>
       <AddToDo
         setTodo={setTodo}
         todo={todo}
