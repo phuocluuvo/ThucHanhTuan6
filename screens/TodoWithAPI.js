@@ -30,7 +30,15 @@ export default function TodoWithAPI() {
       });
   }
   const swipeFromRightOpen = (id) => {
+    fetch("https://633f90f6e44b83bc73bc6d3e.mockapi.io/api/ToDo/" + id, {
+      method: "DELETE",
+    });
     setTodos(todos.filter((item) => item.id !== id));
+    axios
+      .get("https://633f90f6e44b83bc73bc6d3e.mockapi.io/api/ToDo")
+      .then((todos) => {
+        setTodos(todos.data);
+      });
   };
   const rightSwipeActions = () => {
     return (
@@ -41,13 +49,15 @@ export default function TodoWithAPI() {
   };
 
   return (
-    <SafeAreaView className="py-10">
+    <SafeAreaView className=" bg-white">
       <StatusBar></StatusBar>
 
       <AddToDo setTodo={setTodo} todo={todo} AddHandler={AddHandler} />
 
       <FlatList
+        className="bg-white"
         data={todos}
+        key={(t) => t.id}
         renderItem={({ item }) => (
           <View>
             <Todo
